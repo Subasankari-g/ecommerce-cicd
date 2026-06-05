@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shopeasy-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: shopeasy
+
+  template:
+    metadata:
+      labels:
+        app: shopeasy
+
+    spec:
+      containers:
+      - name: shopeasy
+
+        image: us-central1-docker.pkg.dev/group-project-498507/shopeasy-retail/shopeasy-app:v1
+
+        ports:
+        - containerPort: 5000
+
